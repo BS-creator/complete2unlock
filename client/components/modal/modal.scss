@@ -1,0 +1,31 @@
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+.modal-primary,
+.modal-info,
+.modal-success,
+.modal-warning,
+.modal-danger {
+  .modal-header {
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+  }
+}
+.modal-primary .modal-header {
+  background: $brand-primary;
+}
+.modal-info .modal-header {
+  background: $brand-info;
+}
+.modal-success .modal-header {
+  background: $brand-success;
+}
+.modal-warning .modal-header {
+  background: $brand-warning;
+}
+.modal-danger .modal-header {
+  background: $brand-danger;
+}

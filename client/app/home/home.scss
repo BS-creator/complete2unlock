@@ -1,0 +1,48 @@
+.uou-block-6a {
+  background: #fff;
+  padding-bottom: 0;
+  box-shadow: 0 0 5px #cecece;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+
+  h6 {
+    margin-bottom: 10px;
+    line-height: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.uou-block-6a:after,
+.uou-block-6a:before {
+  content: " ";
+  display: table;
+}
+
+.bg-gradient-primary {
+  h3 {
+    color: white;
+  }
+}
+
+
+.small-box {
+  h3, p{
+    color: white;
+  }
+  .small-box-footer {
+    min-height: 30px;
+  }
+}
+
+
+.content-header {
+  .breadcrumb {
+    position: relative;
+    margin-top: 15px;
+  }
+ }

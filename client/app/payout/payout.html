@@ -1,0 +1,87 @@
+<div class="profile-bnr sub-bnr user-profile-bnr" ng-if="$!ctrl.isLoggedIn()">
+  <div class="position-center-center">
+    <div class="container">
+      <h2 translate>PAYOUT_TITLE</h2>
+    </div>
+  </div>
+</div>
+<section class="pro-mem" ng-if="!$ctrl.isLoggedIn()">
+  <div class="container pb30">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th translate>PAYOUT_AMOUNT</th>
+              <th translate>PAYOUT_CPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(country, cpa) in $ctrl.appConfig.payout">
+              <td>{{'COUNTRY_' + country.toUpperCase() | translate}}</td>
+              <td>{{cpa | euro}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="content-header" ng-if="$ctrl.isLoggedIn()">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>PAYOUT_TITLE</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>PAYOUT_TITLE</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content" ng-if="$ctrl.isLoggedIn()">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <form ng-submit="$ctrl.requestPayout(form.paypalEmail)">
+          <div class="form-group">
+            <label for="inputPayPalEmail" translate>PAYOUT_EMAIL</label>
+            <input type="email" class="form-control" ng-model="form.paypalEmail" required id="inputPayPalEmail" placeholder="user@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="inputAmount" translate>PAYOUT_BALANCE</label>
+            {{$ctrl.currentUser.creditPending | euro: false: true}}
+          </div>
+          <div class="form-group">
+            <div class="alert alert-danger" ng-show="$ctrl.currentUser.creditPending < 500000"role="alert" translate>PAYOUT_AMOUNT_MIN</div>
+            <div class="alert alert-warning" translate>PAYOUT_TEXT</div>
+            <button class="btn btn-primary" ng-disabled="$ctrl.currentUser.creditPending < 500000" type="submit" translate>PAYOUT_REQUEST</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th translate>PAYOUT_AMOUNT</th>
+            <th translate>PAYOUT_CPA</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="(country, cpa) in $ctrl.appConfig.payout">
+            <td>{{'COUNTRY_' + country.toUpperCase() | translate}}</td>
+            <td>{{cpa | euro}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

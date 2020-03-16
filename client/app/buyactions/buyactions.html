@@ -1,0 +1,65 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>PREMIUMACTIONS_TITLE</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item"><a ui-sref="premiumactions" translate>PREMIUMACTIONS_LIST_TITLE</a></li>
+          <li class="breadcrumb-item active" translate>PREMIUMACTIONS_TITLE</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body" ng-if="$ctrl.c2uConfig.premiumactions.enabled">
+        <p translate>PREMIUMACTIONS_TEXT</p>
+        <form ng-submit="$ctrl.checkout(form.channel.name, form.action, form.url, form.amount, form.user)">
+          <div class="form-group" ng-show="$ctrl.Auth.isAdminSync()">
+            <label for="inputUser" translate>PREMIUMACTIONS_USERID</label>
+            <input type="text" id="inputUser" class="form-control" ng-model="form.user" />
+          </div>
+          <div class="form-group">
+            <label for="inputChannel" translate>ROTATINGACTION_CHANNEL</label>
+            <select id="inputChannel" required class="form-control provider-select" ng-model="form.channel" ng-options="channel as (channel.name | translate) for channel in $ctrl.channels track by channel.name"></select>
+          </div>
+          <div class="form-group">
+            <label for="inputAction" translate>CREATE_ACTION</label>
+            <select id="inputAction" required class="form-control label-select" ng-model="form.action" ng-show="form.channel.actions" ng-options="chaction as (chaction | translate) for chaction in form.channel.actions track by chaction"></select>
+          </div>
+          <div class="form-group">
+            <label for="inputAction" translate>CREATE_ACTION_URL</label>
+            <input type="text" required class="form-control" ng-model="form.url"/>
+          </div>
+          <div class="form-group">
+            <label for="inputAmount" translate>PREMIUMACTIONS_AMOUNT</label>
+            <div class="row" ng-init="form.amount = 500">
+                <input id="inputAmount" style="color: #000 !important" type="number" step="500" min="500" max="500000" class="form-control col-md-3" ng-model="form.amount" />
+
+                <span class="col-md-3" translate>HOME_STATS_COMPLETIONS</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAction" translate>PREMIUMACTIONS_AFFILIATE_ACTIONS</label>
+            {{$ctrl.getFreeActions(form.amount)}}
+          </div>
+          <div class="form-group">
+            <label for="inputAction" translate>PREMIUMACTIONS_TOTAL</label>
+            <span>{{(form.amount - $ctrl.getFreeActions(form.amount)) * ($ctrl.c2uConfig.premiumactions.price || 400) | euro}}</span>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" translate>{{((form.amount - $ctrl.getFreeActions(form.amount)) * ($ctrl.c2uConfig.premiumactions.price || 400) > 0 ? 'PREMIUMACTIONS_CHECKOUT' : 'PREMIUMACTIONS_CHECKOUT_FREE') | translate}}</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-body"  ng-if="!$ctrl.c2uConfig.premiumactions.enabled">
+        <p translate>PREMIUMACTIONS_DISABLED</p>
+      </div>
+    </div>
+  </div>
+</section>

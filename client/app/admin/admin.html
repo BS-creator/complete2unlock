@@ -1,0 +1,80 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>Admin</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>Admin</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+
+
+    <div class="container">
+      <h3>Config</h3>
+      <textarea ng-model="$ctrl.config" style="height: 150px" cols="80"></textarea>
+      <a href="#" ng-click="$ctrl.saveConfig($ctrl.config)" class="btn btn-primary">Save config</a>
+    </div>
+
+    <div class="container">
+      <h3>Pending payouts</h3>
+      <table class="table hover table-responsive">
+        <thead>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Paypal email</th>
+          <th>Amount</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="payout in $ctrl.payouts">
+            <td>{{payout.createDate | date : 'dd.MM.yyyy HH:mm'}}</td>
+            <td>{{payout.status}}</td>
+            <td>{{payout.paypalEmail}}</td>
+            <td>{{payout.amount | euro}}</td>
+            <td><a href="#" ng-click="$ctrl.completePayout(payout)">Complete payout</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Active actions</h3>
+      <table class="table hover table-responsive">
+        <thead>
+          <th>User</th>
+          <th>Completions</th>
+          <th>Views</th>
+          <th>Action</th>
+          <th>PaymentId</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="monetizedaction in $ctrl.monetizedactions">
+            <td>{{monetizedaction.user}}</td>
+            <td>{{monetizedaction.completionsDone}} / {{monetizedaction.completionsTotal}}</td>
+            <td>{{monetizedaction.views}}</td>
+            <td><a href="{{monetizedaction.actionUrl}}">{{monetizedaction.action.action | translate}} on {{monetizedaction.action.channel | translate}}</a></td>
+            <td>{{monetizedaction.paymentId}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Users <a class="btn btn-primary" ng-click="$ctrl.reloadUsers()">Reload</a></h3>
+      <ul class="list-group user-list">
+        <li class="list-group-item" ng-repeat="user in $ctrl.users">
+          <div class="user-info">
+              <strong>{{user.name}} ({{user._id}})</strong><br>
+              <span class="text-muted">{{user.email}}</span>
+          </div>
+            <a ng-click="$ctrl.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>SIDEBAR_PREMIUMACTIONS</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>SIDEBAR_PREMIUMACTIONS</li>
+        </ol>
+        <a ui-sref="buyactions" class="btn btn-primary float-sm-right mr-2" translate>PREMIUMACTIONS_TITLE</a>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <!-- /.card-header -->
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover">
+          <tr>
+            <th translate>FOOTER_STATUS</th>
+            <th translate>PREMIUMACTIONS_COMPLETIONS_TOTAL</th>
+            <th translate>PREMIUMACTIONS_COMPLETIONS_DONE</th>
+            <th translate>HOME_LINKS_VIEW</th>
+            <th translate>PREMIUMACTIONS_ACTIONS</th>
+          </tr>
+          <tr ng-repeat="action in $ctrl.monetizedactions">
+            <td>{{action.status | translate}}</td>
+            <td>{{action.completionsTotal}}</td>
+            <td>{{action.completionsDone}}</td>
+            <td>{{action.views}}</td>
+            <td><a target="_blank" rel="noopener" href="{{action.action.actionUrl}}">{{action.action.action | translate}} on {{action.action.channel | translate}}</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

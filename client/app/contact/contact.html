@@ -1,0 +1,50 @@
+<div class="profile-bnr sub-bnr user-profile-bnr" ng-if="!$ctrl.isLoggedIn()">
+  <div class="position-center-center">
+    <div class="container">
+      <h2 translate>FOOTER_CONTACT</h2>
+    </div>
+  </div>
+</div>
+
+<div class="content-header" ng-if="$ctrl.isLoggedIn()">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>FOOTER_CONTACT</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>FOOTER_CONTACT</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <section class="pro-mem">
+      <div class="container pb30">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 translate>CONTACT_HEADING_1</h3>
+            <ul>
+              <li translate>CONTACT_LI_1</li>
+              <li translate>CONTACT_LI_2</li>
+              <li translate>CONTACT_LI_3</li>
+              <li translate>CONTACT_LI_4</li>
+                <ul>
+                  <li translate>CONTACT_LI_5</li>
+                  <li translate>CONTACT_LI_6</li>
+                </ul>
+            </ul>
+            <h3 translate>FAQ_HEADING_1</h3>
+                <ul>
+                  <li translate>FAQ_LI_1</li>
+                </ul>
+            <div id="feedback-form">form will be placed in here</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

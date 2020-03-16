@@ -1,0 +1,30 @@
+
+<div class="homebanner">
+  <div class="container" id="login">
+    <div class="loginbox" id="loginbox" ng-init="view='login'">
+      <div class="loginheader">
+        <span translate>NAV_LOGIN</span>
+      </div>
+      <div class="formbox" ng-if="view === 'login'">
+        <form ng-submit="vm.login(form)">
+          <input ng-model="vm.user.email" type="email" placeholder="Email Address" name="email" autocomplete="off" /><br />
+          <input ng-model="vm.user.password" type="password" placeholder="Password" name="password" autocomplete="off" /><br />
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block btn-flat pull-right" translate>NAV_LOGIN</button><br><br>
+            </div>
+          </div>
+
+          <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted" translate>LOGIN_ERROR_EMAIL_PASSWORD</p>
+          <p class="help-block" ng-show="form.email.$error.email && vm.submitted" translate>LOGIN_ERROR_EMAIL</p>
+
+          <p class="help-block">{{ vm.errors.login }}</p>
+
+          <div class="forget">{{'LOGIN_FORGOT' | translate}} <a href="#" ng-click="vm.forgotPassword()" translate>LOGIN_FORGOT_CLICK</a></div>
+          <a href="/" translate>NAV_REGISTER</a>
+          <oauth-buttons class="oauth" classes="btn-block"></oauth-buttons>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

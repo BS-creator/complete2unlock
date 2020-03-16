@@ -1,0 +1,235 @@
+a {
+  color: #09f;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+a.active,
+a:active,
+a:focus,
+a:hover {
+  text-decoration: none!important;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+p {
+  margin: 0 0 24px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ol,
+ul {
+  margin: 0 0 24px;
+  font-family: montserrat,sans-serif;
+}
+
+.btn-primary {
+  background-color: #09f;
+  border: 2px solid #09f;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: inherit;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 0;
+  white-space: nowrap;
+  color: #fff;
+  padding: 8px 21.312px;
+  transition: all 0.3s;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: montserrat,sans-serif;
+}
+
+input {
+  color: #fff!important;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.h6,
+h6 {
+  font-size: 16px;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: montserrat,sans-serif;
+  font-weight: 600;
+  line-height: 1.25em;
+  color: #333;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=datetime],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #cecece;
+  transition: all 0.3s;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+table {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 24px;
+  background-color: #fff;
+
+  > thead {
+    > tr {
+      > th {
+        color: #fff;
+        vertical-align: bottom;
+        background-color: #09f;
+        font-weight: 600;
+        padding: 8px 15px;
+        line-height: 24px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+table > tbody > tr > td,
+table > tbody > tr > th,
+table > tfoot > tr > td,
+table > tfoot > tr > th,
+table > thead > tr > td,
+table > thead > tr > th {
+  padding: 8px 15px;
+  line-height: 24px;
+  vertical-align: top;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+input[type=email],
+input[type=password],
+input[type=text] {
+  color: #000 !important;
+}
+
+input[type=color]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=datetime]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  outline-color: #333;
+  outline-style: initial;
+  outline-width: 0;
+  border-color: #333;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+@media (max-width: 500px) {
+  .user-profile-bnr {
+    height: 120px!important;
+    min-height: 120px!important;
+  }
+
+  .logo {
+    font-size: 22px!important;
+    width: 250px;
+  }
+}
+@media (max-width: 422px) {
+  .uou-block-2b .nav {
+    margin-top: -40px;
+  }
+}
+@media (max-width: 767px) {
+  .position-center-center {
+    width: 100%;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}
+
+.swal-content__input,
+.swal-content__textarea {
+  color: #3a3a3a !important;
+}
+
+.adcenter {
+  left: 50%;
+  position: relative;
+  margin-left: -160px;
+}

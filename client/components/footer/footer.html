@@ -1,0 +1,23 @@
+<div class="uou-block-4a secondary dark" ng-hide="$ctrl.$rootScope.embed" ng-if="!$ctrl.isLoggedIn()">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <ul class="links">
+          <li><a href="/" translate>NAV_HOME</a></li>
+          <li><a href="/privacypolicy" translate>FOOTER_PRIVACY</a></li>
+          <li><a href="/termscondition" translate>FOOTER_TERMS</a></li>
+          <li><a href="https://status.complete2unlock.com" translate>FOOTER_STATUS</a></li>
+          <li><a href="https://support.complete2unlock.com/help/" translate>FOOTER_FAQ</a></li>
+          <li><a href="/contact" translate>FOOTER_CONTACT</a></li>
+        </ul>
+        <p>Copyright © 2019 <a href="#">Complete2Unlock</a>. All Rights reserved.</p>
+      </div>
+      <div class="col-md-3">
+        <h3 translate>FOOTER_RECENT_LINKS</h3>
+          <span ng-repeat="link in $ctrl.links">{{$index !== 0 ? ' | ' : ''}}<a href="/{{link.uniqueId}}">{{link.name}}</a></span>
+        <a class="twitter-timeline" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/Complete2Unlock?ref_src=twsrc%5Etfw">Tweets by Complete2Unlock</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      </div>
+    </div>
+  </div>
+</div>

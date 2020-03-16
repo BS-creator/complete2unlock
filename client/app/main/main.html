@@ -1,0 +1,143 @@
+<div class="home-pro">
+  <div class="homebanner">
+    <div class="bannercontainer">
+      <div class="loginbox" id="loginbox" ng-init="view='register'">
+        <div class="loginheader">
+          <span translate>NAV_REGISTER</span>
+        </div>
+        <div class="formbox" ng-if="view === 'register'">
+          <form ng-submit="$ctrl.register(form)">
+            <div class="form-group has-feedback">
+              <input type="text" class="form-control" placeholder="Username *" name="name" ng-model="form.name" required>
+              <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="email" class="form-control" placeholder="Email *" name="email" ng-model="form.email" required>
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="password" class="form-control" placeholder="Password *" name="password" ng-model="form.password"
+                     ng-minlength="3"
+                     required
+                     mongoose-error>
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input type="password" class="form-control" placeholder="Retype Password *" name="password_confirmation"  ng-model="form.confirmPassword"
+                     match="vm.user.password"
+                     ng-minlength="3" required/>
+              <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" ng-disabled="$ctrl.submitted" class="btn btn-primary btn-block btn-flat pull-right" translate>NAV_REGISTER</button><br><br>
+                <oauth-buttons class="oauth" classes="btn-block"></oauth-buttons>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="formbox" ng-if="view === 'login'">
+          <form ng-submit="$ctrl.login(form)">
+            <input ng-model="form.email" type="email" placeholder="Email Address" name="email" autocomplete="off" /><br/>
+            <input ng-model="form.password" type="password" placeholder="Password" name="password" autocomplete="off" /><br/>
+            <div class="row">
+              <div class="col-xs-12  pull-left">
+                <button type="submit" class="btn btn-primary btn-block btn-flat pull-right" translate>NAV_LOGIN</button><br><br>
+              </div>
+            </div>
+
+            <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted" translate>LOGIN_ERROR_EMAIL_PASSWORD</p>
+            <p class="help-block" ng-show="form.email.$error.email && vm.submitted" translate>LOGIN_ERROR_EMAIL</p>
+
+            <p class="help-block">{{ vm.errors.login }}</p>
+
+            <div class="forget">{{'LOGIN_FORGOT' | translate}} <a ng-click="$ctrl.forgotPassword()" translate>LOGIN_FORGOT_CLICK</a></div>
+          </form>
+        </div>
+      </div>
+      <!--<a href="#services" class="cta"><i class="fa fa-angle-down fa-3x"></i></a>-->
+    </div>
+  </div>
+
+
+  <section class="services" id="services">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-question-circle"></i> {{'MAIN_SERVICS_1_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_1_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-book"></i> {{'MAIN_SERVICS_2_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_2_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-picture-o"></i> {{'MAIN_SERVICS_3_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_3_TEXT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-globe"></i> {{'MAIN_SERVICS_4_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_4_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-refresh"></i> {{'MAIN_SERVICS_5_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_5_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-money"></i> {{'MAIN_SERVICS_6_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_6_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-code"></i> {{'MAIN_SERVICS_7_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_7_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-heart"></i> {{'MAIN_SERVICS_8_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_8_TEXT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4><i class="fa fa-info-circle"></i> {{'MAIN_SERVICS_9_TITLE' | translate}}</h4>
+            <p translate>MAIN_SERVICS_9_TEXT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>

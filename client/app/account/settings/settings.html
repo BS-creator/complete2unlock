@@ -1,0 +1,59 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>NAV_SETTINGS</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>NAV_SETTINGS</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <section class="pro-mem settings">
+      <div class="container pb30">
+        <div class="row">
+          <div class="col-12">
+            <div class="uou-tabs vertical accordion-xs" ng-init="vm.tab='email'">
+              <ul class="tabs">
+                <li ng-class="{active:vm.tab==='email'}"><a href="#" ng-click="vm.tab='email'" translate>CHANGE_EMAIL</a></li>
+                <li ng-class="{active:vm.tab==='password'}"><a href="#" ng-click="vm.tab='password'" translate>CHANGE_PASSWORD</a></li>
+              </ul>
+              <div class="content">
+                <div ng-show="vm.tab==='email'" class="active" id="uou-tab-1v">
+                  <form method="post" action="/changeemail">
+                    <h6 translate>CHANGE_EMAIL</h6>
+                    <input type="email" value="" name="email" placeholder="your new email" class="form-control" required="" autocomplete="off" >
+                    <input type="password" value="" class="form-control" name="password" placeholder="your current password" required="" autocomplete="off">
+                    <br>
+                    <input type="submit" value="Update" name="changeemail" class="btn btn-primary">
+                  </form>
+                </div>
+                <div ng-show="vm.tab==='password'" id="uou-tab-2v" class="">
+                  <form ng-submit="vm.changePassword(form)">
+                    <h6 translate>CHANGE_PASSWORD</h6>
+                    <input type="password" name="old_password" ng-model="vm.user.oldPassword"
+                           mongoose-error class="form-control" placeholder="your old password" required="">
+                    <input type="password" ng-model="vm.user.newPassword"
+                           ng-minlength="3"
+                           required name="new_password" class="form-control" placeholder="new password">
+                    <input type="password" name="new_password_confirmation" g-model="vm.user.confirmPassword"
+                           match="vm.user.newPassword"
+                           ng-minlength="3" class="form-control" placeholder="retype new password" required="">
+                    <input type="submit" value="Update" name="changepassword" class="btn btn-primary">
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,120 @@
+<section class="pro-mem">
+  <div class="pb30">
+    <div class="unlockbox">
+      <div class="unlockboxheader">
+        <h1 class="unlockboxtitle">{{$ctrl.link.title}}</h1>
+        <p translate>UNLOCK_HELP</p>
+        <!--<adsquare class="adsquare"></adsquare>-->
+      </div>
+
+        <div class="unlockactions" ng-if="!$ctrl.waitEnabled" >
+          <ul class="list-unstyled">
+            <li class="list-item" ng-repeat="action in $ctrl.link.actions">
+              <div class="card  pointer unlockpanel" ng-click="$ctrl.unlockAction(action)">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-11">
+                      <span>
+                        <img ng-if="action.channel === 'FACEBOOK'" src="/assets/images/facebook.svg" />
+                        <img ng-if="action.channel === 'INSTAGRAM'" src="/assets/images/instagram.svg" />
+                        <img ng-if="action.channel === 'SNAPSHAT'" src="/assets/images/snapchat.svg" />
+                        <img ng-if="action.channel === 'YOUTUBE'" src="/assets/images/youtube.svg" />
+                        <i ng-if="['FACEBOOK', 'INSTAGRAM', 'SNAPSHAT', 'YOUTUBE'].indexOf(action.channel) === -1" class="fa fa-mouse-pointer"></i>
+                      </span>
+                      <span ng-if="action.customContent" ng-class="{msmall: action.channel === 'ads'}">{{action.customContent}}</span>
+                      <span ng-if="!action.customContent">{{action.action | translate}} {{'UNLOCK_ON' | translate}} {{action.channel | translate}}</span>
+                      <span ng-if="action.channel === 'ads'">{{action.action}}</span>
+                    </div>
+                    <div class="col-1">
+                      <div class="indicator">
+                        <img ng-hide="action.opened || action.unlocked" src="/assets/images/unlockarrow.svg" />
+                        <span style="float: right; color:green; font-size:22px;" class="loaderhere min" ng-show="action.opened"><img src="/assets/images/loader.webp" height="30px" width="30px"></span>
+                        <span class="max" style="float: right; " ng-show="action.unlocked">
+                          <i class="fa fa-check-circle-o fa-2x"></i><br />
+                        </span>
+                        <!--<div class="visible-xs-block smallicons">
+                          <img ng-if="action.channel === 'DISCORD'" src="/assets/images/discord.png" />
+                          <img ng-if="action.channel === 'INSTAGRAM'" src="/assets/images/instagram.png" />
+                          <img ng-if="action.channel === 'SNAPSHAT'" src="/assets/images/snapchat.png" />
+                          <img ng-if="action.channel === 'TWITTER'" src="/assets/images/twitter.png" />
+                          <img ng-if="action.channel === 'YOUTUBE'" src="/assets/images/youtube.png" />
+                        </div>-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="unlockborder"></div>
+              </div>
+              <!--<ad ng-if="$ctrl.link.monetized"></ad>-->
+            </li>
+            <li class="list-item"  ng-if="$ctrl.link.monetized">
+              <div class="card  pointer unlockpanel" ng-click="$ctrl.clickMobileOffer()">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-11">
+                      <span>
+                        <i class="fa fa-mouse-pointer"></i>
+                      </span>
+                      <span translate>UNLOCK_NOTIFICATION</span>
+                    </div>
+                    <div class="col-1">
+                      <div class="indicator">
+                        <img ng-hide="$ctrl.nOpened || $ctrl.nUnlocked" src="/assets/images/unlockarrow.svg" />
+                        <span style="float: right; color:green; font-size:22px;" class="loaderhere min" ng-show="$ctrl.nOpened"><img src="/assets/images/loader.webp" height="30px" width="30px"></span>
+                        <span class="max" style="float: right; " ng-show="$ctrl.nUnlocked">
+                          <i class="fa fa-check-circle-o fa-2x"></i><br />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="unlockborder"></div>
+              </div>
+            </li>
+
+            <!--<li class="list-item" style="padding-top: 15px;">
+              <adsquare class="adsquare"></adsquare>
+            </li>-->
+            <div class="unlockfooter">
+              <li class="list-item actionprogress">
+
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{($ctrl.getCompleted() / $ctrl.link.actions.length) * 100 | number}}%;">
+                    <span class="sr-only">60% Complete</span>
+                  </div>
+                </div>
+                <span class="pull-left progressdesc"><strong>{{$ctrl.getCompleted()}}/{{$ctrl.link.actions.length}}</strong> {{'UNLOCK_COMPLETED' | translate}}</span> <span class="pull-right progressdesc">{{($ctrl.getCompleted() / $ctrl.link.actions.length) * 100 | number}}%</span>
+              </li>
+
+              <li class="list-item">
+                <button ng-disabled="!$ctrl.isCompleted()" ng-click="$ctrl.continueLink()" data-main-url="" id="link-success-button"  ng-class="{'btn-locked': !$ctrl.isCompleted()}" class="btn btn-block btn-success btn-round btn-continue" data-url="MQ==" type="button">
+                  <i ng-hide="$ctrl.isCompleted()" class="fa fa-lock"></i>
+                  {{$ctrl.link.buttonText || ('UNLOCK_CONTINUE' | translate)}}
+                </button>
+                <span style="float: right; color:green; font-size:22px; display: none" class="fa fa-check-circle fa-2x"></span>
+              </li>
+            </div>
+          </ul>
+
+        </div>
+
+        <div class="centered text-center unlockactions" ng-if="$ctrl.waitEnabled" style="box-shadow: rgba(223, 223, 223, 0.5) 0px 14px 24px; padding: 5px 30px;">
+          <!--<adsquare></adsquare>
+          <adsquare></adsquare>
+          <adsquare></adsquare>-->
+
+          <ul id="link-button-list" class="list-unstyled">
+            <li class="list-item">
+
+              <!--<div id="avid" data-playerPro="current"></div>-->
+              <button ng-disabled="$ctrl.wait > 0" ng-click="$ctrl.continueLink()" data-main-url="" id="link-success-button"  ng-class="{'btn-locked': $ctrl.wait > 0}" class="btn btn-block btn-success btn-round btn-continue" data-url="MQ==" type="button">
+                <i ng-hide="$ctrl.wait > 0" class="fa fa-clock"></i>
+                {{($ctrl.wait > 0 ? 'UNLOCK_WAIT' : 'UNLOCK_CONTINUE') | translate: '{wait: ' + $ctrl.wait + '}'}}
+              </button>
+              <span style="float: right; color:green; font-size:22px; display: none" class="fa fa-check-circle fa-2x"></span>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</section>

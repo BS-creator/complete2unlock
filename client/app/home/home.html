@@ -1,0 +1,215 @@
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>NAV_HOME</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item active" translate>NAV_HOME</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content dashboard">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{$ctrl.getTotalViews()}}</h3>
+            <p translate>HOME_STATS_VIEWS</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{$ctrl.currentUser.creditPending | euro}}</h3>
+            <p translate>HOME_STATS_CREDIT</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-credit-card"></i>
+          </div>
+          <a ui-sref="payout" class="small-box-footer"><span translate>PAYOUT_TITLE</span> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{$ctrl.getTotalCompletions()}}</h3>
+
+            <p translate>HOME_STATS_COMPLETIONS</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-check"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{ ('COUNTRY_' + (($ctrl.topCountries[0] || ['NONE'])[0])) | translate}}</h3>
+
+            <p translate>HOME_STATS_COUNTRIES</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-9 col-12">
+        <div class="card bg-gradient-primary" style="height: 496px;">
+          <div class="card-header no-border">
+            <h3 class="card-title">
+              <i class="fa fa-map-marker mr-1" aria-hidden="true"></i>
+
+              <span translate>HOME_STATS_COMPLETIONS</span>
+            </h3>
+          </div>
+          <div class="card-body">
+            <div id="world-map" style="height: 400px; width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-12">
+        <div class="card">
+          <div class="card-header ui-sortable-handle" style="cursor: move;">
+            <h3 class="card-title">
+              <i class="fa fa-twitter mr-1" aria-hidden="true"></i>
+              <span translate>HOME_TWITTER</span>
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <a class="twitter-timeline" data-width="300" data-height="400" data-theme="light" href="https://twitter.com/Complete2Unlock?ref_src=twsrc%5Etfw">Tweets by Complete2Unlock</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<div class="profile-bnr sub-bnr user-profile-bnr">
+  <div class="position-center-center">
+    <div class="container">
+      <h2 translate>NAV_HOME</h2>
+    </div>
+  </div>
+</div>
+
+<section class="pro-mem">
+  <div class="container pb30">
+    <h3>{{'HOME_TITLE_STATS' | translate}} <a href="/create" class="btn btn-primary" translate>NAV_CREATE</a> <a href="javascript:void(location.href='https://complete2unlock.com/create?lockedurl='+encodeURIComponent(location.href));" onclick="return false;" class="btn btn-primary">Bookmarklet</a>
+    </h3>
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="uou-block-6a">
+          <h6 id="totalview">{{$ctrl.getTotalViews()}}</h6>
+          <p><i class="fa fa-link"></i> <span translate>HOME_STATS_VIEWS</span></p>
+        </div>
+
+      </div>
+      <div class="col-sm-3">
+        <div class="uou-block-6a">
+          <h6 id="usescount">{{$ctrl.currentUser.creditPending | euro}}</h6>
+          <p><i class="fa fa-credit-card"></i> <span translate>HOME_STATS_CREDIT</span> <a ui-sref="payout" translate>PAYOUT_TITLE</a></p>
+        </div>
+
+      </div>
+      <div class="col-sm-3">
+        <div class="uou-block-6a">
+          <h6 id="totalcomp">{{$ctrl.getTotalCompletions()}}</h6>
+          <p><i class="fa fa-check"></i> <span translate>HOME_STATS_COMPLETIONS</span></p>
+        </div>
+
+      </div>
+      <div class="col-sm-3">
+        <div class="uou-block-6a">
+          <h6 id="allcountries">{{($ctrl.topCountries[0] || ['-'])[0]}}</h6>
+          <p><i class="fa fa-map-marker"></i> <span translate>HOME_STATS_COUNTRIES</span></p>
+        </div>
+
+      </div>
+    </div>
+    <h3 translate>HOME_TITLE_LINKS</h3>
+    <table class="table-hover">
+      <thead>
+        <tr>
+          <th translate>CREATE_LINK_NAME</th>
+          <th translate>HOME_LINKS_VIEW</th>
+          <th class="completion" translate>HOME_STATS_COMPLETIONS</th>
+          <th translate>HOME_LINKS_ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody id="protectlinks">
+        <tr ng-repeat="link in $ctrl.links">
+          <td>{{link.name}}</td>
+          <td>{{link.views}}</td>
+          <td>{{link.completions}}</td>
+          <td>
+            <a href="#" class="map-toggleButton pull-left sharelink" style="margin-right:30px" ng-click="$ctrl.copyLink(link)"> <i class="fa fa-share"></i> </a>
+            <a ui-sref="edit({uniqueId: '{{link._id}}'})" class="map-toggleButton pull-left"> <i class="fa fa-eye"></i> </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>My premium actions - <a ui-sref="buyactions">Buy action</a></h3>
+    <table class="table-hover">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Completions total</th>
+          <th>Completions done</th>
+          <th>Views</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="protectlinks">
+        <tr ng-repeat="action in $ctrl.monetizedactions">
+          <td>{{action.status | translate}}</td>
+          <td>{{action.completionsTotal}}</td>
+          <td>{{action.completionsDone}}</td>
+          <td>{{action.views}}</td>
+          <td><a target="_blank" rel="noopener" href="{{action.action.actionUrl}}">{{action.action.action | translate}} on {{action.action.channel | translate}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>{{'HOME_TITLE_PAYOUTS' | translate}} - <a ui-sref="payout" translate>HOME_PAYOUTS_REQUEST</a></h3>
+    <table class="table-hover">
+      <thead>
+        <tr>
+          <th translate>HOME_PAYOUTS_STATUS</th>
+          <th translate>HOME_PAYOUTS_AMOUNT</th>
+          <th translate>HOME_PAYOUTS_PAYPALEMAIL</th>
+        </tr>
+      </thead>
+      <tbody id="protectlinks">
+        <tr ng-repeat="payout in $ctrl.payouts">
+          <td>{{payout.status | translate}}</td>
+          <td>{{payout.amount | euro}}</td>
+          <td>{{payout.paypalEmail}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+-->

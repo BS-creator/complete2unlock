@@ -1,0 +1,57 @@
+.uou-block-4a {
+  position: relative;
+  display: block;
+  padding: 24px 0;
+  background: #f4f4f4;
+  color: #333;
+  font-size: 14px;
+
+  .links {
+    padding-left: 0;
+    list-style: none;
+    float: right;
+    margin-bottom: 0;
+
+    > li {
+      float: left;
+      margin-right: 24px;
+
+      a {
+        display: block;
+        color: #333;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    float: left;
+    color: #333;
+  }
+}
+
+.secondary.uou-block-4a {
+  background: #333;
+  color: #e6e6e6;
+}
+
+.secondary.uou-block-4a.dark {
+  background: #fff;
+}
+
+.uou-block-4a:after,
+.uou-block-4a:before {
+  content: " ";
+  display: table;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .uou-block-4a .links {
+    float: none;
+    >li {
+      float: none;
+    }
+  }
+}

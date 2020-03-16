@@ -1,0 +1,108 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>AF_TITLE</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>AF_TITLE</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{$ctrl.getCurrentUser().affiliateStats.users}}</h3>
+            <p translate>AF_USER</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{$ctrl.getCurrentUser().affiliateStats.views}}</h3>
+            <p translate>HOME_LINKS_VIEW</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-mouse-pointer"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{$ctrl.getCurrentUser().affiliateStats.completions}}</h3>
+
+            <p translate>HOME_STATS_COMPLETIONS</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-check"></i>
+          </div>
+          <a href="#" class="small-box-footer"></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{$ctrl.getFreeActions()}}</h3>
+
+            <p translate>AF_FREE_ACTIONS</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <a ui-sref="buyactions" class="small-box-footer"><span translate>AF_FREE_ACTIONS_USE</span> <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 translate> AF_INFO_1</h2> <br />
+            <ul>
+              <li translate> AF_INFO_2</li>
+              <li translate> AF_INFO_3</li>
+              <li translate> AF_INFO_4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" style="min-height: 224px">
+          <div class="card-body">
+            <br />
+            <table class="table">
+              <tr>
+                <td translate>AF_TAG</td>
+                <td><code>{{$ctrl.getCurrentUser().affiliateId}}</code></td>
+              </tr>
+              <tr>
+                <td translate>AF_LINK</td>
+                <td><a href="{{$ctrl.getCurrentUser().affiliateUrl}}">{{$ctrl.getCurrentUser().affiliateUrl}}</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

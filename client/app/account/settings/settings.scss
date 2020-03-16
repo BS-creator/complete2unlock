@@ -1,0 +1,57 @@
+.settings {
+  .uou-tabs {
+    position: relative;
+    margin: 0 0 24px;
+
+    .content {
+      margin-left: 140px;
+      border-top: 0;
+      border-left: 3px solid #f4f4f4;
+
+      > div {
+        position: relative;
+        padding: 1px 24px;
+      }
+    }
+
+    .tabs:after,
+    .tabs:before {
+      content: " ";
+      display: table;
+    }
+
+    .tabs {
+      float: left;
+      width: 140px;
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+      font-family: montserrat,sans-serif;
+
+      li {
+        margin: 0 0 24px;
+        position: relative;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 5px;
+        padding-left: 0;
+        list-style: none;
+        margin: 0;
+
+        a {
+          display: block;
+          border: 3px solid transparent;
+          color: #333;
+          padding: 8px 24px;
+        }
+      }
+
+      li.active a {
+        border-left-color: #09f;
+        border-top-color: #f4f4f4;
+        color: #333;
+        background: #f4f4f4;
+      }
+    }
+  }
+}

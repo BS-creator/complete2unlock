@@ -1,0 +1,43 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>LINKS_TITLE</h1>
+        <h5 class="m-0 text-dark">We recommend redirecting to complete2unlock using our <a href="http://getthelink.xyz">link shortener getthelink</a> from your website, <a href="https://pastebin.com">pastebin</a> or <a href="https://docs.google.com">Google docs</a> and not from YouTube directly, as they might block the link.</h5>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item active" translate>LINKS_TITLE</li>
+        </ol>
+        <a ui-sref="create" class="btn btn-primary float-sm-right mr-2" translate>NAV_CREATE</a>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <!-- /.card-header -->
+      <div class="card-body p-0 table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th translate>CREATE_LINK_NAME</th>
+            <th translate>HOME_LINKS_VIEW</th>
+            <th class="completion" translate>HOME_STATS_COMPLETIONS</th>
+            <th translate>HOME_LINKS_ACTIONS</th>
+          </tr>
+          <tr ng-repeat="link in $ctrl.links">
+            <td>{{link.name}}</td>
+            <td>{{link.views}}</td>
+            <td>{{link.completions}}</td>
+            <td>
+              <a href="#" class="map-toggleButton pull-left sharelink btn btn-primary" style="margin-right:30px" ng-click="$ctrl.copyLink(link)"> <i class="fa fa-share"></i> <span translate>SHARE</span></span></a>
+              <a ui-sref="linksedit({uniqueId: '{{link._id}}'})" class="map-toggleButton pull-left btn btn-primary"> <i class="fa fa-eye"></i> <span translate>LINKS_DETAILS</span></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

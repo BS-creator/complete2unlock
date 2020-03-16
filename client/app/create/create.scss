@@ -1,0 +1,37 @@
+.sub-bnr {
+  position: relative;
+  padding: 0;
+  min-height: 60px;
+  background: url("/assets/images/user-bg.webp") no-repeat;
+  background-size: cover;
+
+  h2 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.position-center-center {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+
+.pro-mem {
+    background: #fff;
+    padding-top: 50px;
+    input[type="submit"] {
+      width: 90px;
+    }
+}
+
+.pb30 {
+    padding-bottom: 30px;
+}

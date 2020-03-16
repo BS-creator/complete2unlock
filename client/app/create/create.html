@@ -1,0 +1,80 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0 text-dark" translate>CREATE_LINK</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a ui-sref="home" translate>NAV_HOME</a></li>
+          <li class="breadcrumb-item"><a ui-sref="links" translate>LINKS_TITLE</a></li>
+          <li class="breadcrumb-item active" translate>CREATE_LINK</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+
+
+<section class="content">
+  <div class="container-fluid">
+        <form ng-submit="$ctrl.createLink()">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header" translate>CREATE_LINK</div>
+                <div class="card-body">
+                  <input type="text" ng-model="$ctrl.link.name" class="form-control" placeholder="{{'CREATE_LINK_NAME' | translate}}" name="pname" required="">
+                  <input type="text" ng-model="$ctrl.link.title" maxlength="25" class="form-control" placeholder="{{'CREATE_LINK_TITLE' | translate}}" name="title" required="">
+                  <input type="text" ng-model="$ctrl.link.buttonText" maxlength="15" class="form-control" placeholder="{{'CREATE_LINK_BUTTON' | translate}}" name="btntext" required="">
+                  <input type="text" ng-model="$ctrl.link.lockedUrl" class="form-control" placeholder="{{'CREATE_LINK_URL' | translate}}" name="lurl" required="">
+                  <select class="form-control" ng-model="$ctrl.link.urltype" id="urltype">
+                    <option value="auto" translate>CREATE_URLTYPE_AUTO</option>
+                    <option value="custom" translate>CREATE_URLTYPE_CUSTOM</option>
+                  </select>
+                  <div ng-show="$ctrl.link.urltype === 'custom'" id="customu">
+                    <input type="text" ng-model="$ctrl.link.uniqueId" class="form-control" placeholder="Custom URL Name" name="curl" id="curl" maxlength="220" pattern="^[a-zA-Z0-9\-]{3,220}$">
+                    <span class="pull-left" style="font-size:12px; margin-top: -25px; display: block" translate>CREATE_URLTYPE_CUSTOM_HELP</span>
+                    <span class="pull-right"><button type="button" class="btn btn-primary btn-small pull-right" ng-click="$ctrl.checkAvailabilityAndModal($ctrl.link.uniqueId)">Check Availability</button></span>
+                    <div class="col-md-12" id="errormsg"></div>
+                    <div class="col-md-12" id="sucmsg"></div>
+                  </div>
+                  <input type="hidden" id="addvalue" value="1">
+                  <label for="monetized" translate>CREATE_MONETIZE</label>
+                  <label class="switch">
+                    <input type="checkbox" id="monetized" ng-model="$ctrl.link.monetized">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-md-6">
+              <div id="actionbox">
+                <div class="card">
+                  <div class="card-header" translate="">CREATE_ACTION_TITLE</div>
+                </div>
+                <div ng-repeat="action in $ctrl.link.actions" class="card">
+                  <div class="card-header">{{'CREATE_ACTION' | translate}} {{$index +1}} <span id="removeiconbox2"><a href="#" class="btn btn-primary btn-small pull-right removee" ng-hide="$index === 0"ng-click="$ctrl.removeAction(action)">{{'CREATE_REMOVE' | translate}} <i class="fa fa-minus"></i></a><span></span></span></div>
+                  <div class="card-body">
+                    <select class="form-control provider-select" ng-model="action.channel" ng-options="channel as (channel.name | translate) for channel in $ctrl.channels track by channel.name"></select>
+                    <select class="form-control label-select" ng-model="action.action" ng-show="action.channel.actions" ng-options="chaction as (chaction | translate) for chaction in action.channel.actions track by chaction"></select>
+                    <input type="text"  placeholder="{{'CREATE_ACTION_LABEL' | translate}}" class="form-control" maxlength="32" id="customlabel1" ng-model="action.customContent" ng-hide="action.channel.actions">
+                    <input type="text" name="url[]" placeholder="{{'CREATE_ACTION_URL' | translate}}" class="form-control" ng-if="action.channel.name !== 'ROTATINGACTION'" ng-model="action.actionUrl" maxlength="4096" id="actions-0-url" required="">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-12 offset-md-6 col-md-3">
+              <input type="submit" value="{{'EDIT_SAVE' | translate}}" class="btn btn-primary btn-block mb-3">
+
+            </div>
+            <div class="col-12 col-md-3">
+              <a class="btn btn-primary btn-small pull-right btn-block mb-5" ng-click="$ctrl.addAction()" translate>CREATE_ACTION_ADDMORE <i class="fa fa-plus"></i></a>
+            </div>
+          </div>
+        </form>
+  </div>
+</section>
